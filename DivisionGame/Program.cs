@@ -55,21 +55,6 @@ void StartOrEnd(string isPlaying)
 {
     if (isPlaying.ToString() == "n")
     Console.WriteLine("Goodbye!");
-    Environment.Exit(0);
-
-    
+    Environment.Exit(0);    
 
 }
-
-//while (isPlaying.ToLower() == "y")
-//{
-//    // Your code here
-//    Console.WriteLine("What 2 numbers added together equal 176");
-//    Console.WriteLine("Please enter a number: ");
-//    int number1 = Convert.ToInt32(Console.ReadLine());
-
-//    Console.WriteLine($"Time left {DateTime.Now} ");
-
-//    // Pause for 1 second
-//    Thread.Sleep(1000);
-//}
