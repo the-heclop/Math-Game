@@ -10,7 +10,7 @@ Console.WriteLine("Try to solve the problems");
 Console.WriteLine("Would you like to play y/n");
 string isPlaying = Console.ReadLine();
 
-
+StartOrEnd(isPlaying);
 
 Console.WriteLine("How many rounds would you like to play");
 int numOfGames = Convert.ToInt32(Console.ReadLine());
@@ -54,7 +54,11 @@ Console.WriteLine($"You took {timer.Elapsed.TotalSeconds} seconds to answer {num
 void StartOrEnd(string isPlaying)
 {
     if (isPlaying.ToString() == "n")
-    Console.WriteLine("Goodbye!");
-    Environment.Exit(0);    
+    {
+        Console.WriteLine("Goodbye!");
+        Environment.Exit(0);
 
+    }
+    else if (isPlaying.ToString() == "y")
+        Console.WriteLine();
 }
