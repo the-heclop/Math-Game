@@ -1,7 +1,8 @@
-﻿using System.ComponentModel;
+﻿using DivisionGame;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Diagnostics;
-using System.Timers;
+ 
 
 Random random = new Random();
 
@@ -20,12 +21,15 @@ Console.WriteLine("WHich operation of math would you like to use? Please choose:
 string operation = Console.ReadLine();
 
 Stopwatch timer = new Stopwatch();
+timer.Start();
 
 for (int i = 0; i < numOfGames; i++)
 {
     int num1 = random.Next(1, 100);
     int num2 = random.Next(1, 100);
     int answer = 0;
+    int round = i+1;
+    
 
     switch (operation)
     {
@@ -45,18 +49,33 @@ for (int i = 0; i < numOfGames; i++)
             Console.WriteLine("Please choose a valid operation");
             break;
     }
+
+
     
 
     Console.WriteLine($"What is {num1} {operation} {num2} ");
     int userAnswer = Convert.ToInt32(Console.ReadLine());
 
+    List<GameHistoryModel> gameHistory = new List<GameHistoryModel>();
+    gameHistory.Add(new GameHistoryModel { answer = answer, userAnswer = userAnswer, rounds = round });
+
     if (answer == userAnswer)
     {
         Console.WriteLine($"Correct! the answer is {answer}");
     }
-    else Console.WriteLine("Sorry incorrect answer ");
+    
+    Console.WriteLine("Sorry incorrect answer ");
+    
+
+
+    foreach (var item in gameHistory)
+    {
+        Console.WriteLine($"The correct answer was {item.answer} your answer was {item.userAnswer} in round {item.rounds} ");
+    }
 
 }
+
+
 
 timer.Stop();
 
@@ -64,7 +83,7 @@ timer.Stop();
 Console.WriteLine($"You took {timer.Elapsed.TotalSeconds} seconds to answer {numOfGames} questions");
 
 
-Console.WriteLine("Would you like to play again y/n");
+
 
 
 
